@@ -11,24 +11,29 @@ const addFomulario =()=>{
         e.preventDefault();
 
         const formData = new FormData( form );
-        const data = Object.fromEntries(formData);
+        const data = Object.fromEntries(formData.entries());
 
+        // Validamos que las cajas no esten vacias
+        if(data.name != '' && data.lastname != ''){
         createUser(data);
       
         form.reset(); //Limpia todas las cajas o campos de nuestro formulario
+        location.reload();
+        }
+
     };
 };
 
 // Creamos la lista de los registros
 const listaOrdenada = async()=>{
+    
  const listaDeUsuarios = await getUsers();
  listaDeUsuarios.forEach( crearListaHtml );
 
 };
 
 
-window.onload=()=>{
-    
+window.onload= async()=>{
     crearTemplate();
     addFomulario();
     listaOrdenada();

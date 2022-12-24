@@ -17,6 +17,7 @@ app.put('/user/:id', user.update);
 app.patch('/user/:id', user.update);
 app.delete('/user/:id', user.destroy);
 
+// Agregamos ruta de raiz la cual nos debe de devolver un archivo HTML
 app.get('/', (req, res)=>{
 console.log(__dirname);
     res.sendFile(`${__dirname}/index.html`);

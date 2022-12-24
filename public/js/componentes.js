@@ -53,8 +53,10 @@ const crearListaHtml=( {_id, name, lastname} )=>{
             const target = event.target.innerText;
             const id = event.target.value;
             
-            (target === 'Eliminar')? console.log(await eliminarUser(id) ):console.log('Boton incorrecto');
-            
+            if(target === 'Eliminar'){ 
+                console.log(await eliminarUser(id));
+                location.reload();
+            }
             
         });
 

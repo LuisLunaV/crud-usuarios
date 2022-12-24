@@ -10,4 +10,4 @@ export{
     botonDelete,
     eliminarUser
 
-}
+};
